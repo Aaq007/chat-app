@@ -1,10 +1,9 @@
-from djangochannelsrestframework.decorators import action
-from djangochannelsrestframework.consumers import AsyncAPIConsumer
+import json
+from asgiref.sync import async_to_sync
+from channels.generic.websocket import WebsocketConsumer
+from authentication.models import User
+from chat.models import Message
 
 
-class MyConsumer(AsyncAPIConsumer):
-
-    @action()
-    async def an_async_action(self, some=None, **kwargs):
-        # do something async
-        return {'response_with': 'some message'}, 200
+class ChatConsumer(WebsocketConsumer):
+    pass
